@@ -3,7 +3,7 @@ import React from 'react'
 function MainContent() {
   return (
     <main className="main-content">
-      <p>This is the main content area.</p>
+      <p>I love to visit New York, Paris, and Tokyo.</p>
     </main>
   )
 }
