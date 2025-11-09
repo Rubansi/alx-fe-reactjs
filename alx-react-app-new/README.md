@@ -144,3 +144,134 @@ Modify UserDetails.jsx to consume UserContext using the useContext hook instead 
 Remove Unused Props:
 
 Remove the userData props passed through ProfilePage and UserInfo, as these will no longer be necessary.
+
+PART 4 
+
+3. Build a Simple Company Website with React
+mandatory
+Objective: Create a four-page company website using React. The website should have a homepage, an about page, a services page, and a contact page.
+
+Requirements:
+
+Set Up the Project:
+
+Use vite to set up a new project called my-company
+Install React Router for routing: npm install react-router-dom.
+Create Basic Page Components:
+
+Create four components: Home.jsx, About.jsx, Services.jsx, and Contact.jsx. Each component should return a simple JSX layout representing the respective page.
+Implement Routing:
+
+In your App.jsx, set up routing using BrowserRouter, Routes, and Route from react-router-dom.
+Define routes for each of the four pages.
+Navigation Bar:
+
+Create a Navbar.jsx component with links (Link from react-router-dom) to each of the four pages.
+Include the Navbar component in App.jsx so it appears on all pages.
+Apply Inline CSS Styling:
+
+Style each page and the navigation bar using inline CSS to make the website visually appealing.
+Add Simple Interactivity:
+
+On the Contact page, implement a simple contact form with state hooks. It doesn’t need to submit anywhere but should demonstrate the use of state.
+Website Content:
+
+Home: A welcome message.
+About: Information about the company.
+Services: A list of services offered.
+Contact: A contact form (name, email, message).
+Extra Features (Optional):
+
+Implement a footer component that appears on all pages.
+Add images or additional styling to enhance the website’s appearance.
+Content and Component Structure for Each Page
+Home Page (Home.jsx):
+   function Home() {
+     return (
+       <div style={{ padding: '20px' }}>
+         <h1>Welcome to Our Company</h1>
+         <p>We are dedicated to delivering excellence in all our services.</p>
+       </div>
+     );
+   }
+
+   export default Home;
+About Page (About.jsx):
+   function About() {
+     return (
+       <div style={{ padding: '20px' }}>
+         <h1>About Us</h1>
+         <p>Our company has been providing top-notch services since 1990. We specialize in various fields including technology, marketing, and consultancy.</p>
+       </div>
+     );
+   }
+
+   export default About;
+Services Page (Services.jsx):
+   function Services() {
+     return (
+       <div style={{ padding: '20px' }}>
+         <h1>Our Services</h1>
+         <ul>
+           <li>Technology Consulting</li>
+           <li>Market Analysis</li>
+           <li>Product Development</li>
+         </ul>
+       </div>
+     );
+   }
+
+   export default Services;
+Contact Page (Contact.jsx):
+   import { useState } from 'react';
+
+   function Contact() {
+     const [formData, setFormData] = useState({
+       name: '',
+       email: '',
+       message: ''
+     });
+
+     const handleChange = (e) => {
+       setFormData({ ...formData, [e.target.name]: e.target.value });
+     };
+
+     const handleSubmit = (e) => {
+       e.preventDefault();
+       alert('Form submitted!');
+     };
+
+     return (
+       <div style={{ padding: '20px' }}>
+         <h1>Contact Us</h1>
+         <form onSubmit={handleSubmit}>
+           <input
+             type="text"
+             name="name"
+             placeholder="Your Name"
+             value={formData.name}
+             onChange={handleChange}
+             style={{ display: 'block', margin: '10px 0' }}
+           />
+           <input
+             type="email"
+             name="email"
+             placeholder="Your Email"
+             value={formData.email}
+             onChange={handleChange}
+             style={{ display: 'block', margin: '10px 0' }}
+           />
+           <textarea
+             name="message"
+             placeholder="Your Message"
+             value={formData.message}
+             onChange={handleChange}
+             style={{ display: 'block', margin: '10px 0' }}
+           />
+           <button type="submit">Send Message</button>
+         </form>
+       </div>
+     );
+   }
+
+   export default Contact;
