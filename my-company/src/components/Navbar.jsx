@@ -5,7 +5,9 @@ function Navbar() {
   const navStyle = {
     backgroundColor: '#333',
     padding: '1rem',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    display: 'flex',
+    justifyContent: 'center'
   }
 
   const linkStyle = {
